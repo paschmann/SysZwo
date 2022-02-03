@@ -28,7 +28,7 @@ A Systm account
 
 # Limitations
 
-The extenstions does not export cadence targets from Systm, this is because the power profile on the workout detail page does not include them.
+The extenstion does not export cadence targets from Systm, this is because the power profile on the workout detail page does not include them.
 
 # Notes
 
