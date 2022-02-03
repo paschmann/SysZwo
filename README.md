@@ -2,7 +2,7 @@
 A simple Chrome extension which converts Systm worksouts to Zwift files (.zwo). I created the extension because I wanted to follow a Systm training plan but complete the workouts in Zwift.
 
 # Overview
-The extension requires the user log onto their Systm account in the browser, then open the workout they want to export to Zwift. When on the workout detail page, the Power graph needs to be shown, this is used as reference to create the .zwo file.
+The extension requires the user log onto their Systm account in the browser, then open the workout they want to export to Zwift. When on the workout detail page, the power graph needs to be shown, this is used as reference to create the .zwo file.
 
 Press the extension button and the file will be downloaded with the filename of the workout.
 
