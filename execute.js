@@ -37,14 +37,17 @@ function createZwoXMLFromArray(workouts) {
     console.log(ftp);
 
     var workoutname = $("[data-test='bannerWorkoutTitle']")[0].innerHTML.trim();
+    workoutname = sanitizeXML(workoutname);
     console.log(workoutname);
 
     //var workoutdesc = $("[data-test='description']")[0].innerHTML.trim();
 
     var workoutduration = $("[data-test='duration']").text().trim();
+    workoutinfo = sanitizeXML(workoutduration);
     console.log(workoutduration);
 
     var workoutinfo = $("[data-test='bottomMeta']").text().trim();
+    workoutinfo = sanitizeXML(workoutinfo);
     console.log(workoutinfo);
 
     //Create new zwo file:
@@ -93,7 +96,10 @@ function createZwoXMLFromArray(workouts) {
     console.log(err);
     alert("Unable to create ZWO file from data.")
   }
+}
 
+function sanitizeXML(string) {
+  return string.replace("&", "and")
 }
 
 function writeZwoXMLtoFile(doc) {
