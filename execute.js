@@ -1,10 +1,15 @@
 // this code will be executed when the extension's button is clicked
 (function () {
   if (document.domain == 'systm.wahoofitness.com') {
-    var svg = getDataFromSVG("[data-test='mainContainer-WorkoutProfile']");
-    var workouts = parseSVGToArray(svg);
-    var doc = createZwoXMLFromArray(workouts);
-    writeZwoXMLtoFile(doc);
+    chrome.storage.sync.get({
+      preferredCadence: '90'
+    }, function(items) {
+      cadence = items.preferredCadence;
+      var svg = getDataFromSVG("[data-test='mainContainer-WorkoutProfile']");
+      var workouts = parseSVGToArray(svg);
+      var doc = createZwoXMLFromArray(workouts, cadence);
+      writeZwoXMLtoFile(doc);
+    });
   } else {
     alert("Not a valid workout URL")
   }
@@ -31,9 +36,9 @@ function parseSVGToArray(sSVG) {
   }
 }
 
-function createZwoXMLFromArray(workouts) {
+function createZwoXMLFromArray(workouts, cadence) {
   try {
-    var ftp = $("[data-test='ftp-chip']")[0].innerHTML
+    var ftp = $("[data-test='ftp-chip']")[0].innerHTML;
     console.log(ftp);
 
     var workoutname = $("[data-test='bannerWorkoutTitle']")[0].innerHTML.trim();
@@ -85,7 +90,7 @@ function createZwoXMLFromArray(workouts) {
       var powerratio = (parseInt(interval.height.animVal.value) / parseInt(ftp)).toFixed(2);
       steadystate.setAttribute("Duration", interval.width.animVal.value);
       steadystate.setAttribute("Power", powerratio);
-      steadystate.setAttribute("Cadence", "0"); //Unknown, would be great have :)
+      steadystate.setAttribute("Cadence", cadence); //Default - 90, Unknown, would be great have :)
       workout.appendChild(steadystate);
     }
 

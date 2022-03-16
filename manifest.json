@@ -7,6 +7,10 @@
   "action": {
     "default_title": "Press this button when you are on the workout detail page."
   },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
   "content_scripts": [
     {
       "matches": [
@@ -28,7 +32,8 @@
 	},
   "permissions": [
     "tabs",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "host_permissions": [
     "https://*/*",
