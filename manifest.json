@@ -2,7 +2,7 @@
   "name": "SysZwo",
   "description": "Create Zwift workout files (zwo) from Systm workouts. Open the Systm workout detail page on the Systm website, and run the Zwo extension. A file with the name will be downloaded. You can then transfer this file to your device.",
   "homepage_url": "https://www.github.com/paschmann/zwo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "action": {
     "default_title": "Press this button when you are on the workout detail page."

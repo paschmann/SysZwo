@@ -5,7 +5,7 @@
       preferredCadence: '90'
     }, function(items) {
       cadence = items.preferredCadence;
-      var svg = getDataFromSVG("[data-test='mainContainer-WorkoutProfile']");
+      var svg = getDataFromSVG("[data-test='mainContainer1']");
       var workouts = parseSVGToArray(svg);
       var doc = createZwoXMLFromArray(workouts, cadence);
       writeZwoXMLtoFile(doc);
@@ -18,7 +18,7 @@
 
 function getDataFromSVG(sSVGElement) {
   try {
-    return $(sSVGElement).find("svg")[0].outerHTML
+    return $(sSVGElement).find("svg").not('.MuiSvgIcon-root')[0].outerHTML
   } catch (err) {
     console.log(err);
     alert("No Power Graph found on page");
